@@ -8,6 +8,6 @@ propertiesObject[apiKeyField] = apiKeyValue;
 exports.handler = (event, context, callback) => {
   request({url:requestUrl, qs:propertiesObject}, function(err, response, body) {
     if(err) { callback(err, null); }
-    callback(null, { statusCode: 200, body: body });
+    callback(null, { statusCode: 200, body: { data: body } });
   });
 };
