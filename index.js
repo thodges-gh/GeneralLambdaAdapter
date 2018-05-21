@@ -7,7 +7,25 @@ propertiesObject[apiKeyField] = apiKeyValue;
 
 exports.handler = (event, context, callback) => {
   request({url:requestUrl, qs:propertiesObject}, function(err, response, body) {
-    if(err) { callback(err, null); }
-    callback(null, { statusCode: 200, body: { data: body } });
+    if(err) { 
+      var errorData = {
+        statusCode: response.statusCode,
+        jobRunID: event["id"],
+        data: JSON.parse(body),
+        status: "errored",
+        error: err,
+        pending: false
+      }
+      callback(JSON.parse(JSON.stringify(errorData)) , null);
+    }
+    var returnData = {
+      statusCode: response.statusCode,
+      jobRunID: event["id"],
+      data: JSON.parse(body),
+      status: "completed",
+      error: null,
+      pending: false
+    }
+    callback(null, JSON.parse(JSON.stringify(returnData)));
   });
 };
