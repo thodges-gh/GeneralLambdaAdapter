@@ -6,6 +6,8 @@
 - Change Runtime to "Node.js 8.10"
 - Handler should be index.handler
 
+![func code](./images/func_code.png)
+
 ## Environment Variables
 
 Add the following environment variables:
@@ -15,6 +17,14 @@ Add the following environment variables:
 - `API_KEY_VALUE`: The value for your actual API key
 - `URL`: The full URL, minus the API query parameters, but including any additional parameters
   - Example: https://example.com/?language=en
+
+![env vars](./images/env_vars.png)
+
+## Output
+
+The results of the function should be parsed JSON, not a single-line string of JSON.
+
+![results](./images/results.png)
 
 ## Installing Locally
 
