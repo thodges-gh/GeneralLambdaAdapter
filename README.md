@@ -1,4 +1,6 @@
-# General AWS Lambda External Adapter for Inserting API Keys
+# General Serverless Adapter for Inserting API Keys
+
+Supports AWS Lambda and Google Cloud Platform Functions
 
 ## Installing in AWS Lambda
 
